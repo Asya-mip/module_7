@@ -4,10 +4,14 @@
 //----------------------------------------------
 
 function printInfo(){
-    console.log(`Name: ${this.name}, Age: ${this.age}`);
+    if (!this.name || !this.age) {
+            console.error('Объект должен содержать свойства name и age');
+            return;
+    }
+    console.log(`Name: ${this.name}, Age: ${this.age}`);   
 }
 
-person = {
+const person = {
     name: "Anastasia",
     age: 23
 };
@@ -27,7 +31,10 @@ printInfo.call(person);
 //         case '*':
 //             return a * b;
 //         case '/':
-//             return a / b;
+//                 if (b === 0) {
+//                     throw new Error('Деление на ноль невозможно');
+//                 }            
+// //             return a / b;
 //     }
 // }
 
